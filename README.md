@@ -7,6 +7,10 @@ yourself on a brass straight key or a dual paddle and watch Java read it back.
 **The whole Morse engine is Java.** The browser measures milliseconds and draws
 things; it does not contain the Morse alphabet, the dot/dash rule, or the
 letter-gap rule. Every symbol you see on screen is an answer from the server.
+<img width="2881" height="1529" alt="Capture-2026-09-27-152120" src="https://github.com/user-attachments/assets/bcfb3b7a-ad5e-4f6f-8675-eb7b2d68dc63" />
+
+<img width="2921" height="1610" alt="Capture-2026-09-27-152051" src="https://github.com/user-attachments/assets/c7144e64-09d5-4fbe-b619-c9b38b86fa9a" />
+
 
 ---
 
