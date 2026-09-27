@@ -11,6 +11,14 @@ letter-gap rule. Every symbol you see on screen is an answer from the server.
 
 <img width="2921" height="1610" alt="Capture-2026-09-27-152051" src="https://github.com/user-attachments/assets/c7144e64-09d5-4fbe-b619-c9b38b86fa9a" />
 
+### Demo
+
+A full walkthrough — keying by hand on the straight key, switching to the dual
+paddle, and the instrument tapping a message back on its own:
+
+**[▶ demo_morse.mov](demo_morse.mov)**
+
+<video src="demo_morse.mov" controls width="720"></video>
 
 ---
 
