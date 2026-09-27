@@ -14,11 +14,11 @@ letter-gap rule. Every symbol you see on screen is an answer from the server.
 ### Demo
 
 A full walkthrough — keying by hand on the straight key, switching to the dual
-paddle, and the instrument tapping a message back on its own:
+paddle, and the instrument tapping a message back on its own.
 
-**[▶ demo_morse.mov](demo_morse.mov)**
-
-<video src="demo_morse.mov" controls width="720"></video>
+<video src="demo_morse.mp4" controls muted width="820" poster="">
+  <a href="demo_morse.mp4">Watch the demo (demo_morse.mp4)</a>
+</video>
 
 ---
 

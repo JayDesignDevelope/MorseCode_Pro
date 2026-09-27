@@ -239,7 +239,7 @@
       b.disabled = b !== btn;
     });
     btn.classList.add('is-playing');
-    btn.textContent = '■ Stop';
+    btn.querySelector('.lbl').textContent = 'Stop';
     setDirection(side === 'morse' ? 'toText' : 'toMorse');
     status('Transmitting ' + plan.morse.replace(/[^.\-]/g, '').length + ' symbols at '
       + plan.wpm + ' wpm (' + (plan.totalMs / 1000).toFixed(1) + ' s) — timeline built in Java.');
@@ -258,7 +258,7 @@
       state.playing = false;
       document.querySelectorAll('[data-play]').forEach((b) => { b.disabled = false; });
       btn.classList.remove('is-playing');
-      btn.textContent = '▶ Play on instrument';
+      btn.querySelector('.lbl').textContent = 'Play on instrument';
       chips.forEach((c) => c.classList.remove('letter'));
       instrument.onPlayStep = function () {};
       status('Transmission complete.');
@@ -276,9 +276,13 @@
       if (!value) { status('Nothing to copy.'); return; }
       try {
         await navigator.clipboard.writeText(value);
-        const was = btn.textContent;
-        btn.textContent = 'Copied ✓';
-        setTimeout(() => { btn.textContent = was; }, 1100);
+        const label = btn.querySelector('.lbl');
+        btn.classList.add('is-copied');
+        label.textContent = 'Copied';
+        setTimeout(() => {
+          btn.classList.remove('is-copied');
+          label.textContent = 'Copy';
+        }, 1100);
       } catch (err) {
         status('Clipboard blocked by the browser — select and copy manually.', true);
       }
@@ -351,7 +355,6 @@
     const muted = els.mute.getAttribute('aria-pressed') === 'true' ? false : true;
     els.mute.setAttribute('aria-pressed', String(muted));
     els.mute.querySelector('.lbl').textContent = muted ? 'Sound off' : 'Sound on';
-    els.mute.querySelector('.spk').textContent = muted ? '🔇' : '🔊';
     audio.setMuted(muted);
   });
 

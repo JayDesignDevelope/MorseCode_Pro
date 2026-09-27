@@ -40,7 +40,13 @@
     </label>
 
     <button id="mute" class="icon-btn" aria-pressed="false" title="Mute / unmute">
-      <span class="spk">🔊</span><span class="lbl">Sound on</span>
+      <svg class="ico-speaker" viewBox="0 0 24 24" aria-hidden="true">
+        <path class="spk-body" d="M11 5.4 L6.6 9.2 H3.6a.6.6 0 0 0-.6.6v4.4a.6.6 0 0 0 .6.6h3L11 18.6Z"/>
+        <path class="spk-wave" d="M14.1 9.4a3.7 3.7 0 0 1 0 5.2"/>
+        <path class="spk-wave" d="M16.7 6.9a7.3 7.3 0 0 1 0 10.2"/>
+        <path class="spk-slash" d="M14.8 9.9 L19.6 14.1 M19.6 9.9 L14.8 14.1"/>
+      </svg>
+      <span class="lbl">Sound on</span>
     </button>
   </div>
 </header>
@@ -60,8 +66,23 @@
       <div class="card-foot">
         <span class="counter"><b id="englishCount">0</b> chars</span>
         <div class="btn-row">
-          <button class="btn" data-play="english">▶ Play on instrument</button>
-          <button class="btn ghost" data-copy="english">Copy</button>
+          <button class="btn" data-play="english">
+          <svg class="ico" viewBox="0 0 16 16" aria-hidden="true">
+            <polygon class="ico-play" points="4.5,3 13,8 4.5,13"/>
+            <rect class="ico-stop" x="4.2" y="4.2" width="7.6" height="7.6" rx="1.5"/>
+          </svg>
+          <span class="lbl">Play on instrument</span>
+        </button>
+          <button class="btn ghost" data-copy="english">
+          <svg class="ico" viewBox="0 0 16 16" aria-hidden="true">
+            <g class="ico-copy">
+              <rect x="5.6" y="2.4" width="8" height="10" rx="1.7"/>
+              <path d="M10.6 13.6H3.9a1.5 1.5 0 0 1-1.5-1.5V5.1"/>
+            </g>
+            <path class="ico-check" d="M3 8.4 L6.4 11.8 L13 4.6"/>
+          </svg>
+          <span class="lbl">Copy</span>
+        </button>
         </div>
       </div>
     </article>
@@ -71,7 +92,12 @@
         <span class="flow-label">English → Morse</span>
         <div class="flow-track"><i></i><i></i><i></i></div>
       </div>
-      <button id="swap" class="swap" title="Swap direction">⇅</button>
+      <button id="swap" class="swap" title="Swap direction" aria-label="Swap direction">
+        <svg viewBox="0 0 16 16" aria-hidden="true">
+          <path d="M5 13.2 V2.8 M5 2.8 L2.6 5.4 M5 2.8 L7.4 5.4"/>
+          <path d="M11 2.8 V13.2 M11 13.2 L8.6 10.6 M11 13.2 L13.4 10.6"/>
+        </svg>
+      </button>
       <div class="flow-line up" data-dir="toText">
         <span class="flow-label">Morse → English</span>
         <div class="flow-track"><i></i><i></i><i></i></div>
@@ -88,8 +114,23 @@
       <div class="card-foot">
         <span class="counter"><b id="morseCount">0</b> symbols</span>
         <div class="btn-row">
-          <button class="btn" data-play="morse">▶ Play on instrument</button>
-          <button class="btn ghost" data-copy="morse">Copy</button>
+          <button class="btn" data-play="morse">
+          <svg class="ico" viewBox="0 0 16 16" aria-hidden="true">
+            <polygon class="ico-play" points="4.5,3 13,8 4.5,13"/>
+            <rect class="ico-stop" x="4.2" y="4.2" width="7.6" height="7.6" rx="1.5"/>
+          </svg>
+          <span class="lbl">Play on instrument</span>
+        </button>
+          <button class="btn ghost" data-copy="morse">
+          <svg class="ico" viewBox="0 0 16 16" aria-hidden="true">
+            <g class="ico-copy">
+              <rect x="5.6" y="2.4" width="8" height="10" rx="1.7"/>
+              <path d="M10.6 13.6H3.9a1.5 1.5 0 0 1-1.5-1.5V5.1"/>
+            </g>
+            <path class="ico-check" d="M3 8.4 L6.4 11.8 L13 4.6"/>
+          </svg>
+          <span class="lbl">Copy</span>
+        </button>
           <button class="btn ghost" id="clearAll">Clear</button>
         </div>
       </div>

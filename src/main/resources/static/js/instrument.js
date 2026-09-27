@@ -43,6 +43,7 @@
       this.activePaddle = null;
       this.playing = false;
       this.playTimer = null;
+      this.playDone = null;
       this.letterTimer = null;   // fires when the silence has ended the letter
       this.wordTimer = null;
 
@@ -217,6 +218,7 @@
       this.stop();
       if (!timeline || !timeline.length) { onDone && onDone(); return; }
       this.playing = true;
+      this.playDone = onDone || null;
 
       let i = 0;
       const startedAt = performance.now();
@@ -225,10 +227,7 @@
       const step = () => {
         if (!this.playing) return;
         if (i >= timeline.length) {
-          this.playVisual(false);
-          this.playing = false;
-          this.onPlayEnd();
-          onDone && onDone();
+          this.finishPlayback();
           return;
         }
         const tone = timeline[i];
@@ -262,10 +261,19 @@
       if (this.playTimer) clearTimeout(this.playTimer);
       this.playTimer = null;
       if (this.playing) {
-        this.playing = false;
-        this.playVisual(false);
-        this.onPlayEnd();
+        this.finishPlayback();
       }
+    }
+
+    /** One exit path for playback, whether it ran out or was stopped by hand,
+        so the caller's clean-up always runs. */
+    finishPlayback() {
+      this.playing = false;
+      this.playVisual(false);
+      this.onPlayEnd();
+      const done = this.playDone;
+      this.playDone = null;
+      if (done) done();
     }
 
     resetStream() {

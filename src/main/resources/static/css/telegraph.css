@@ -117,7 +117,30 @@ input[type=range]::-moz-range-thumb {
 }
 .icon-btn:hover { border-color: var(--brass); color: var(--ink); }
 .icon-btn[aria-pressed="true"] { color: #6d7480; }
-.icon-btn[aria-pressed="true"] .spk { filter: grayscale(1) opacity(.5); }
+
+/* ── icons ──
+   One stroke system: fill none, stroke currentColor, so every icon inherits
+   the colour of the control it sits in. */
+.ico, .ico-speaker, .swap svg {
+  flex: 0 0 auto; fill: none; stroke: currentColor;
+  stroke-width: 1.6; stroke-linecap: round; stroke-linejoin: round;
+}
+.ico { width: 13px; height: 13px; }
+.ico-speaker { width: 16px; height: 16px; }
+.swap svg { width: 15px; height: 15px; stroke-width: 1.7; }
+
+.spk-body { fill: currentColor; stroke: none; }
+.spk-wave { stroke-width: 1.7; }
+.spk-slash { display: none; stroke-width: 1.8; }
+.icon-btn[aria-pressed="true"] .spk-wave { display: none; }
+.icon-btn[aria-pressed="true"] .spk-slash { display: block; }
+
+.ico-play, .ico-stop { fill: currentColor; stroke: none; }
+.ico-stop, .ico-check { display: none; }
+.btn.is-playing .ico-play { display: none; }
+.btn.is-playing .ico-stop { display: block; }
+.btn.is-copied .ico-copy { display: none; }
+.btn.is-copied .ico-check { display: block; }
 
 /* ───────── layout ───────── */
 .stage {
@@ -183,6 +206,7 @@ input[type=range]::-moz-range-thumb {
 .btn-row { display: flex; gap: 7px; flex-wrap: wrap; }
 
 .btn {
+  display: inline-flex; align-items: center; gap: 7px;
   cursor: pointer; border-radius: 9px; padding: 8px 13px;
   font: 600 11.5px var(--sans); letter-spacing: .03em;
   color: #23190a; border: 1px solid #7d5a1a;
@@ -220,9 +244,10 @@ input[type=range]::-moz-range-thumb {
 @keyframes flowRunBack { from { left: 100%; } to { left: -28px; } }
 
 .swap {
+  display: flex; align-items: center; justify-content: center;
   width: 38px; height: 38px; border-radius: 50%; cursor: pointer;
   background: #12161c; border: 1px solid var(--line); color: var(--brass);
-  font-size: 16px; transition: all .25s ease;
+  transition: all .25s ease;
 }
 .swap:hover { border-color: var(--brass); transform: rotate(180deg); background: #1a1f27; }
 
